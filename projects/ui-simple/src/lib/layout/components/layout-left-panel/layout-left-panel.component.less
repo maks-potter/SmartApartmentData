@@ -1,0 +1,47 @@
+@import (reference) 'variables';
+
+@host-color:                  @theme-secondary-color;
+@left-panel-content-bg-color: @theme-color-light;
+@divider-color:               tint(@theme-secondary-color, 90%);
+@shadow-color:                tint(@theme-secondary-color, 80%);
+@left-panel-bg-blue-color:    @theme-color-blue-dark;
+
+:host {
+  position: relative;
+
+  color: @host-color;
+}
+
+.sa-left-panel {
+  z-index: 2;
+
+  width: @left-panel-width;
+}
+
+// [Mode] left panel blue
+.sa-left-panel--blue-color {
+  background-color: @left-panel-bg-blue-color;
+}
+
+.sa-left-panel-content {
+  position: absolute;
+  z-index: 1;
+
+  width: @left-panel-content-width;
+  height: 100%;
+
+  border-right: 1px solid @divider-color;
+  background-color: @left-panel-content-bg-color;
+  box-shadow: inset -4px 0 5px -2px @shadow-color;
+
+  transform: translateX(@left-panel-width);
+}
+
+.sa-header {
+  padding: @grid-offset-step (@grid-offset-step * 2);
+  border-bottom: 1px solid @divider-color;
+
+  &__btn-close {
+    background-color: @left-panel-content-bg-color;
+  }
+}

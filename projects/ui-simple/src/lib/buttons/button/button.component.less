@@ -1,0 +1,576 @@
+@import (reference) 'variables';
+
+@btn-font-family:                     @font-type-default;
+@btn-outline-color:                   tint(@theme-color-blue-dark, 40%);
+
+@btn-filled-color:                    #ffffff;
+@btn-filled-primary-bg-color:         @theme-color-blue-dark;
+@btn-filled-primary-bg-color-hover:   tint(@btn-filled-primary-bg-color, -10%);
+
+@btn-filled-secondary-bg-color:       @theme-color-blue;
+@btn-filled-secondary-bg-color-hover: tint(@btn-filled-secondary-bg-color, -10%);
+
+@btn-filled-dark-bg-color:            @theme-secondary-color;
+@btn-filled-dark-bg-color-hover:      tint(@btn-filled-dark-bg-color, -10%);
+
+@btn-filled-success-bg-color:         @theme-color-success;
+@btn-filled-success-bg-color-hover:   #1e8d55;
+
+@btn-filled-alert-bg-color:           @theme-color-error;
+@btn-filled-alert-bg-color-hover:     tint(@btn-filled-alert-bg-color, -10%);
+
+
+@btn-flat-color:                      @theme-secondary-color;
+@btn-flat-border-color:               tint(@theme-secondary-color, 80%);
+@btn-flat-bg-color:                   #ffffff;
+@btn-flat-bg-color-hover:             tint(@theme-secondary-color, 95%);
+
+@btn-flat-secondary-color:            @theme-color-blue-dark;
+@btn-flat-secondary-border-color:     fade(@theme-color-blue-dark, 20%);
+@btn-flat-secondary-bg-color:         tint(@theme-color-blue-dark, 95%);
+@btn-flat-secondary-bg-color-hover:   tint(@theme-color-blue-dark, 80%);
+
+@btn-simple-color:                    @theme-secondary-color;
+@btn-simple-bg-color:                 #ffffff;
+@btn-simple-bg-color-hover:           tint(@theme-secondary-color, 90%);
+
+@btn-simple-secondary-bg-color:       @theme-color-light;
+@btn-simple-secondary-bg-color-hover: @theme-color-grey-light;
+
+@btn-menu-bg-color-hover:             tint(@theme-secondary-color, 95%);
+@btn-menu-right-icon-color:           @text-primary-color;
+@btn-menu-secondary-bg-color-hover:   tint(@theme-color-blue-dark, 90%);
+@btn-menu-secondary-icon-color:       @theme-color-blue-dark;
+@btn-menu-white-icon-color:           #ffffff;
+@btn-menu-white-bg-color-hover:       @theme-color-blue;
+
+
+@btn-menu-context-color:              @theme-secondary-color;
+
+:host {
+  display: inline-flex;
+  padding: 0 (@grid-offset-step * 2);
+
+  font-family: @btn-font-family;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: start;
+  text-decoration: none;
+
+  border: none;
+  border-radius: 2px;
+
+  transition-timing-function: ease;
+  transition-duration: (@animation-step * 2);
+  transition-property: color, background-color;
+
+  cursor: pointer;
+
+  justify-content: center;
+}
+
+.sa-content {
+  padding: @grid-offset-step 0;
+}
+
+.sa-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.sa-spinner {
+  min-width: 16px;
+  height: 16px;
+  margin-right: -@grid-offset-step;
+  margin-left: @grid-offset-step;
+}
+
+// [ Mode ] left icon
+//--------------------------------------------------
+.sa-icon--left {
+  margin-right: @grid-offset-step / 2;
+  margin-left: -@grid-offset-step;
+}
+
+// [ Mode ] right icon
+//--------------------------------------------------
+.sa-icon--right {
+  margin-right: -@grid-offset-step;
+}
+
+// [ State ] tab mode
+//--------------------------------------------------
+:host-context(.tab-mode):focus {
+  outline: @btn-outline-color solid 2px;
+  outline-offset: 1px;
+}
+
+// [ State ] disabled
+//--------------------------------------------------
+:host.sa-disabled {
+  opacity: 0.7;
+
+  cursor: default;
+}
+
+// [ Mode ] simple
+//--------------------------------------------------
+:host.sa-btn--simple {
+  font-weight: 600;
+  color: @btn-simple-color;
+
+  background-color: @btn-simple-bg-color;
+
+  fill: @btn-simple-color;
+
+  .sa-spinner {
+    fill: @btn-simple-color;
+  }
+
+  // [ State ] disabled
+  &.sa-disabled {
+    opacity: 0.4;
+  }
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-simple-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] simple secondary
+//--------------------------------------------------
+:host.sa-btn--simple-secondary {
+  background: @btn-simple-secondary-bg-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background: @btn-simple-secondary-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] filled styles of button
+//--------------------------------------------------
+:host.sa-btn--filled {
+  font-weight: 600;
+  color: @btn-filled-color;
+  text-decoration: none;
+
+  background: @btn-filled-primary-bg-color;
+
+  fill: @btn-filled-color;
+
+  .sa-spinner {
+    fill: @btn-filled-color;
+  }
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-filled-primary-bg-color-hover;
+    }
+  }
+
+  .sa-content:first-letter {
+    text-transform: capitalize;
+  }
+}
+
+
+// [ Mode ] filled secondary
+//--------------------------------------------------
+:host.sa-btn--filled-secondary {
+  background: @btn-filled-secondary-bg-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background: @btn-filled-secondary-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] filled dark
+//--------------------------------------------------
+:host.sa-btn--filled-dark {
+  background: @btn-filled-dark-bg-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background: @btn-filled-dark-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] filled success
+//--------------------------------------------------
+:host.sa-btn--filled-success {
+  background: @btn-filled-success-bg-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background: @btn-filled-success-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] filled alert
+//--------------------------------------------------
+:host(.sa-btn--filled-alert) {
+  background: @btn-filled-alert-bg-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background: @btn-filled-alert-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] flat styles of button
+//--------------------------------------------------
+:host.sa-btn--flat {
+  color: @btn-flat-color;
+
+  background-color: @btn-flat-bg-color;
+  box-shadow: inset 0 0 0 1px @btn-flat-border-color;
+
+  fill: @btn-flat-color;
+
+  .sa-spinner {
+    fill: @btn-flat-color;
+  }
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-flat-bg-color-hover;
+    }
+  }
+
+  .sa-content:first-letter {
+    text-transform: capitalize;
+  }
+}
+
+// [ Mode ] flat secondary
+//--------------------------------------------------
+:host.sa-btn--flat-secondary {
+  font-weight: 600;
+  color: @btn-flat-secondary-color;
+
+  background-color: @btn-flat-secondary-bg-color;
+  box-shadow: inset 0 0 0 1px @btn-flat-secondary-border-color;
+
+  fill: @btn-flat-secondary-color;
+
+  .sa-spinner {
+    fill: @btn-flat-secondary-color;
+  }
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-flat-secondary-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] menu button
+//--------------------------------------------------
+:host.sa-btn--menu {
+  font-size: 14px;
+  text-align: left;
+
+  border-radius: 50%;
+
+  .sa-icon--left {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sa-icon--right {
+    width: 12px;
+    height: 12px;
+    margin-right: 0;
+    margin-left: @grid-offset-step * 1.5;
+
+    fill: @btn-menu-right-icon-color;
+  }
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-menu-bg-color-hover;
+    }
+  }
+
+  // [ State ] icon button
+  &.sa-icon-btn {
+    padding: @grid-offset-step;
+
+    .sa-icon--left {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+// [ Mode ] menu secondary button
+//--------------------------------------------------
+:host.sa-btn--menu-secondary {
+  fill: @btn-menu-secondary-icon-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-menu-secondary-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] menu secondary button
+//--------------------------------------------------
+:host.sa-btn--menu-white {
+  fill: @btn-menu-white-icon-color;
+
+  // [ State ] hover & active
+  &:hover,
+  &.sa-active {
+    &:not(.sa-disabled) {
+      background-color: @btn-menu-white-bg-color-hover;
+    }
+  }
+}
+
+// [ Mode ] menu compact button
+//--------------------------------------------------
+:host.sa-btn--menu-compact {
+  padding: 0 (@grid-offset-step * 2);
+
+  // [ State ] icon button
+  &.sa-icon-btn {
+    padding: 0 (@grid-offset-step * 3);
+
+    .sa-icon--left {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+// [ Mode ] size large
+//--------------------------------------------------
+:host.sa-btn--large {
+  font-size: 14px;
+  line-height: 1.3;
+
+  .sa-content {
+    padding: (@grid-offset-step * 1.5) 0;
+  }
+
+  .sa-spinner {
+    min-width: 20px;
+    height: 20px;
+  }
+
+  .sa-icon {
+    width: 24px;
+    height: 24px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+  }
+}
+
+// [ Mode ] size small
+//--------------------------------------------------
+:host.sa-btn--small {
+  padding: 0 @grid-offset-step;
+
+  font-size: 10px;
+
+  .sa-content {
+    padding: (@grid-offset-step / 2) 0;
+  }
+
+  .sa-spinner {
+    min-width: 10px;
+    height: 10px;
+  }
+
+  .sa-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .sa-icon--left {
+    margin-right: @grid-offset-step / 2;
+    margin-left: -(@grid-offset-step / 2);
+  }
+
+  .sa-icon--right,
+  .sa-spinner {
+    margin-right: -(@grid-offset-step / 2);
+    margin-left: @grid-offset-step / 2;
+  }
+}
+
+// [ Mode ] size compact
+//--------------------------------------------------
+:host.sa-btn--compact {
+  padding: 0 @grid-offset-step;
+
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0;
+
+  .sa-content {
+    padding: (@grid-offset-step / 3) 0;
+  }
+
+  .sa-spinner {
+    min-width: 10px;
+    height: 10px;
+  }
+
+  .sa-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .sa-icon--left {
+    margin-right: @grid-offset-step / 2;
+    margin-left: -(@grid-offset-step / 2);
+  }
+
+  .sa-icon--right,
+  .sa-spinner {
+    margin-right: -(@grid-offset-step / 2);
+    margin-left: @grid-offset-step / 2;
+  }
+}
+
+// [ Mode ] context
+//--------------------------------------------------
+:host.sa-btn--context {
+  padding: 0;
+
+  .sa-content {
+    padding: 0;
+  }
+}
+
+// [ Mode ] button has only icon
+//--------------------------------------------------
+:host.sa-icon-btn {
+  padding: 0;
+
+  .sa-spinner {
+    min-width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: @grid-offset-step / 2;
+  }
+
+  .sa-icon--left {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .sa-icon--right {
+    margin: 0 0 0 -(@grid-offset-step / 2);
+  }
+
+  &.sa-btn--large {
+    padding: 0;
+
+    .sa-icon--left {
+      width: 30px;
+      height: 30px;
+    }
+
+    .sa-icon--right {
+      margin-left: -@grid-offset-step;
+    }
+
+    .sa-spinner {
+      min-width: 30px;
+      height: 30px;
+      padding: @grid-offset-step;
+    }
+  }
+
+  &.sa-btn--small {
+    padding: 0;
+
+    .sa-icon--left {
+      width: 18px;
+      height: 18px;
+    }
+
+    .sa-spinner {
+      min-width: 18px;
+      height: 18px;
+    }
+  }
+
+  &.sa-btn--compact {
+    padding: 0;
+
+    .sa-icon--left {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &.sa-btn--filled-dark {
+    background: transparent;
+
+    .sa-icon {
+      fill: @btn-filled-dark-bg-color;
+    }
+
+    // [ State ] hover & active
+    &:hover,
+    &.sa-active {
+      background: transparent;
+
+      &:not(.sa-disabled) {
+        .sa-icon {
+          fill: @btn-filled-dark-bg-color-hover;
+        }
+      }
+    }
+  }
+}
+
+// [Mode] content justify by space-between
+:host.sa-btn--space-between {
+  justify-content: space-between;
+
+  .sa-content {
+    display: flex;
+    flex-shrink: 1;
+    width: 100%;
+
+    justify-content: space-between;
+  }
+}

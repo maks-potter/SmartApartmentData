@@ -1,0 +1,9 @@
+<ng-container *ngFor="let item of SA_SIDEBAR_CATALOG_ITEMS; trackBy: trackById">
+  <button
+    class="sa-btn-menu g-flex-column__item-fixed sa-btn--simple sa-btn--simple-secondary sa-btn--large"
+    (click)="selectItem(item)"
+    sa-button
+    [saIcon]="item.icon">
+    {{ item.label }}
+  </button>
+</ng-container>

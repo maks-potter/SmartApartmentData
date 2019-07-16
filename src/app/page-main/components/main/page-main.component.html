@@ -1,0 +1,30 @@
+<sa-layout-with-left-panel
+  class="g-flex-column__item"
+  saLeftPanelColorMode="sa-left-panel--blue-color">
+  <div
+    class="sa-left-panel--blue-color g-flex-column__item g-flex-column"
+    saLayoutLeftPanel>
+    <sa-main-panel
+      class="sa-main-panel g-flex-column__item"
+      (saItemSelected)="mainPanelItemSelected($event)">
+    </sa-main-panel>
+
+    <sa-settings-panel class="sa-settings-panel g-flex-column__item-fixed">
+    </sa-settings-panel>
+  </div>
+
+  <ng-container
+    [ngSwitch]="mainPanelSelectedItem?.id"
+    saLayoutSidebarContent>
+    <sa-sidebar-catalog
+      *ngSwitchCase="SA_MAIN_PANEL_TYPES.CATALOG"
+      class="sa-sidebar-catalog">
+    </sa-sidebar-catalog>
+  </ng-container>
+
+  <div
+    class="sa-layout-content g-flex-column__item g-flex-column"
+    saLayoutContent>
+    <router-outlet></router-outlet>
+  </div>
+</sa-layout-with-left-panel>

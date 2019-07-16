@@ -1,0 +1,21 @@
+<div
+  class="sa-content"
+  [ngClass]="className"
+  [ngStyle]="data.styles">
+  <div
+    *ngIf="isShowArrow"
+    class="sa-arrow">
+  </div>
+
+  <div class="sa-inner">
+    <ng-container *ngIf="isContentString; else contentTemplate">
+      <div [innerHTML]="content">
+      </div>
+    </ng-container>
+
+    <ng-template #contentTemplate>
+      <ng-template [ngTemplateOutlet]="content">
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

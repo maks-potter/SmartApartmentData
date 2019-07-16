@@ -1,0 +1,15 @@
+@import (reference) 'variables';
+
+@label-color:    @theme-secondary-color;
+@required-color: @theme-color-blue-dark;
+
+:host {
+  font-size: 12px;
+  color: @label-color;
+  text-transform: capitalize;
+}
+
+.sa-required {
+  font-weight: 600;
+  color: @required-color;
+}

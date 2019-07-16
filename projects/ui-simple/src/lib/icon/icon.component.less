@@ -1,0 +1,80 @@
+@import (reference) 'variables';
+
+@icon-filled-blue-dark-color: @theme-color-blue-dark;
+@icon-secondary-color:        tint(@theme-color-blue-dark, 60%);
+@icon-primary-color:          tint(@theme-secondary-color, 20%);
+@icon-alert-color:            @theme-color-error;
+@icon-warning-color:          @theme-color-warning;
+
+:host {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+  line-height: 0;
+}
+
+.sa-icon {
+  width: 100%;
+  height: 100%;
+
+  line-height: 1;
+}
+
+// [ Mode ] size small
+// ---------------------------------------
+:host.sa-icon--small {
+  width: 14px;
+  height: 14px;
+}
+
+// [ Mode ] size medium
+// ---------------------------------------
+:host.sa-icon--medium {
+  width: 20px;
+  height: 20px;
+}
+
+// [ Mode ] size large
+// ---------------------------------------
+:host.sa-icon--large {
+  width: 24px;
+  height: 24px;
+}
+
+// [ Mode ] size biggest
+// ---------------------------------------
+:host.sa-icon--biggest {
+  width: 32px;
+  height: 32px;
+}
+
+// [ Mode ] filled blue dark
+//--------------------------------------------------
+:host.sa-icon--brand-color {
+  fill: @icon-filled-blue-dark-color;
+}
+
+// [ Mode ] primary icon
+//--------------------------------------------------
+:host.sa-icon--primary {
+  fill: @icon-primary-color;
+}
+
+// [ Mode ] alert icon
+//--------------------------------------------------
+:host.sa-icon--alert {
+  fill: @icon-alert-color;
+}
+
+// [ Mode ] warning icon
+//--------------------------------------------------
+:host.sa-icon--warning {
+  fill: @icon-warning-color;
+}
+
+// [ Mode ] secondary icon
+//--------------------------------------------------
+:host.sa-icon--secondary {
+  fill: @icon-secondary-color;
+}

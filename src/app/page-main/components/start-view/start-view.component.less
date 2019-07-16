@@ -1,0 +1,13 @@
+@import (reference) 'variables';
+
+@main-font: @font-type-default;
+
+@host-color: @theme-secondary-color;
+
+:host {
+  height: 100%;
+  padding: @grid-offset-step * 5;
+
+  font-family: @main-font;
+  color: @host-color;
+}

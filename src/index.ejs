@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SmartApartmentData</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <base href="/">
+
+  <meta http-equiv="cache-control" content="no-cache, max-age=0"/>
+  <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+  <meta http-equiv="pragma" content="no-cache"/>
+</head>
+<body>
+  <% if (htmlWebpackPlugin.files.sprites) { %>
+    <div class="sa-svg-sprite">
+    <% for (var spriteFileName in htmlWebpackPlugin.files.sprites) { %>
+        <%= htmlWebpackPlugin.files.sprites[spriteFileName] %>
+    <% } %>
+    </div>
+  <% } %>
+
+  <sa-app></sa-app>
+</body>
+</html>

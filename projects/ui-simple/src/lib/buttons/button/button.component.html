@@ -1,0 +1,19 @@
+<sa-icon
+  *ngIf="icon && !(isContentEmpty && isLoading)"
+  class="sa-icon sa-icon--left g-flex__item-fixed"
+  [saIcon]="icon">
+</sa-icon>
+
+<span class="sa-content g-flex__item-fixed" #content><ng-content></ng-content></span>
+
+<sa-icon
+  *ngIf="iconRight && !isLoading"
+  class="sa-icon sa-icon--right g-flex__item-fixed"
+  [saIcon]="iconRight">
+</sa-icon>
+
+<sa-spinner
+  *ngIf="isLoading"
+  class="sa-spinner g-flex__item-fixed">
+</sa-spinner>
+

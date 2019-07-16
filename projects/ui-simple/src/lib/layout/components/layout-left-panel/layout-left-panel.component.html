@@ -1,0 +1,35 @@
+<aside
+  class="sa-left-panel g-flex__item-fixed g-flex-column"
+  [ngClass]="leftPanelColorMode">
+  <ng-content select="[saLayoutLeftPanel]"></ng-content>
+</aside>
+
+<aside
+  *ngIf="isVisibleSidebar"
+  class="sa-left-panel-content g-flex__item-fixed g-flex-column"
+  [ngClass]="sidebarColorMode"
+  [@slideLeftToRightAnimation]="state"
+  (@slideLeftToRightAnimation.done)="onAnimationDone($event)">
+  <header class="sa-header g-flex g-flex--align-center">
+    <div class="sa-title sa-title--secondary g-flex__item">
+      <span *ngIf="sidebarTitle">
+        {{ sidebarTitle }}
+      </span>
+    </div>
+
+    <button
+      class="sa-header__btn-close sa-btn--simple sa-btn--simple-secondary g-flex__item-fixed"
+      (click)="hideContentPanel()"
+      sa-button
+      [saTooltip]="SA_CLOSE_SIDEBAR_TOOLTIP"
+      [saMouseEnterDelay]="0.3"
+      saIcon="#sa-arrow-left">
+    </button>
+  </header>
+
+  <ng-content select="[saLayoutSidebarContent]"></ng-content>
+</aside>
+
+<section class="sa-content g-flex__item g-flex-column">
+  <ng-content select="[saLayoutContent]"></ng-content>
+</section>

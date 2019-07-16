@@ -1,0 +1,127 @@
+@import (reference) 'variables';
+
+@input-color:                 @theme-secondary-color;
+@input-bg-color:              #ffffff;
+@input-border-color:          tint(@theme-secondary-color, 90%);
+@input-border-hover-color:    tint(@theme-secondary-color, 70%);
+@input-disabled-color:        tint(@theme-secondary-color, 70%);
+@input-border-disabled-color: tint(@theme-secondary-color, 90%);
+@input-bg-disabled-color:     tint(@theme-secondary-color, 95%);
+@input-secondary-bg-color:    tint(@theme-secondary-color, 95%);
+@input-secondary-color:       tint(@theme-secondary-color, 40%);
+@input-border-error-color:    @theme-color-error;
+@input-focus-border-color:    tint(@theme-color-blue-dark, 20%);
+
+@icon-fill: tint(@theme-secondary-color, 40%);
+
+:host {
+  position: relative;
+
+  padding: @grid-offset-step (@grid-offset-step * 1.5);
+
+  font-size: 14px;
+  line-height: 20px;
+
+  color: @input-color;
+
+  border: 1px solid @input-border-color;
+  border-radius: 2px;
+  background-color: @input-bg-color;
+}
+
+.sa-icon {
+  fill: @icon-fill;
+}
+
+// [ Mode ] icon left
+.sa-icon--left {
+  margin-right: @grid-offset-step / 2;
+}
+
+// [ Mode ] icon right
+.sa-icon--right {
+  margin-left: @grid-offset-step / 2;
+}
+
+.sa-spinner {
+  margin-left: @grid-offset-step;
+}
+
+.sa-btn-clear {
+  margin-left: @grid-offset-step / 2;
+}
+
+// [ State ] Hover, focus
+//--------------------------------------------------
+:host(:hover),
+:host(:focus) {
+  &:not(.sa-input--disabled):not(.sa-input--has-error) {
+    border-color: @input-border-hover-color;
+  }
+}
+
+// [Mode] disabled
+//--------------------------------------------------
+:host.sa-input--disabled {
+  color: @input-disabled-color;
+
+  border-color: @input-border-disabled-color;
+  background-color: @input-bg-disabled-color;
+}
+
+// [Mode] readonly
+//--------------------------------------------------
+:host.sa-input--readonly {
+  padding: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border: none;
+  background: none;
+}
+
+// [Mode] error
+//--------------------------------------------------
+:host.sa-input--has-error:not(.sa-input--error-free) {
+  padding: (@grid-offset-step - 1) (@grid-offset-step * 1.5 - 1);
+
+  border-width: 2px;
+  border-color: @input-border-error-color;
+}
+
+// [Mode] secondary
+//--------------------------------------------------
+:host.sa-input--secondary {
+  color: @input-secondary-color;
+
+  border-color: transparent;
+  background-color: @input-secondary-bg-color;
+}
+
+// [Mode] actions
+//--------------------------------------------------
+:host.sa-input--actions {
+  padding: 1px 1px 1px (@grid-offset-step * 1.5);
+}
+
+// [Mode] small input
+//--------------------------------------------------
+:host.sa-input--small {
+  height: auto;
+  padding: (@grid-offset-step / 2) @grid-offset-step;
+
+  font-size: 12px;
+  line-height: 18px;
+
+  &.sa-input--has-error {
+    padding: (@grid-offset-step / 2 - 1) (@grid-offset-step - 1);
+  }
+}
+
+// [ Theme ] Tab mode
+//--------------------------------------------------
+:host-context(.tab-mode).sa-focused {
+  outline: none;
+  box-shadow: 0 0 0 3px @input-focus-border-color;
+}

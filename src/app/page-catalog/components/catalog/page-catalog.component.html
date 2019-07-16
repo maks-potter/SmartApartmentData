@@ -1,0 +1,13 @@
+<div class="sa-title g-flex-column__item-fixed">
+  Report catalog
+</div>
+
+<div class="sa-cards g-flex-column__item g-flex">
+  <sa-card
+    *ngFor="let card of SA_CATALOG_ITEMS; trackBy: trackById"
+    class="sa-card g-flex__item-fixed"
+    [saIcon]="card.icon"
+    [saTitle]="card.title"
+    [saText]="card.text">
+  </sa-card>
+</div>

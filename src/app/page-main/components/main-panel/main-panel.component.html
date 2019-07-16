@@ -1,0 +1,13 @@
+<ng-container *ngFor="let item of SA_SETTINGS_PANEL_ITEMS; trackBy: trackById">
+  <button
+    class="sa-btn-menu g-flex-column__item-fixed sa-btn--menu sa-btn--menu-white"
+    [class.sa-active]="item.id === selectedItem?.id"
+    (click)="selectItem(item)"
+    sa-button
+    [saTooltip]="item.label"
+    [saPlacement]="SA_PLACEMENTS.RIGHT"
+    [saMouseEnterDelay]="0.3"
+    [saShowArrow]="false"
+    [saIcon]="item.icon">
+  </button>
+</ng-container>

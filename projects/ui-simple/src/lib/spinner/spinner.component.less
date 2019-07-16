@@ -1,0 +1,115 @@
+@import (reference) 'variables';
+
+/* # SPINNER STYLES
+-------------------------------------------------- */
+@spinner-font:          @font-type-default;
+@spinner-speed:         1.2s;
+@spinner-medium-size:   30px;
+@spinner-small-size:    16px;
+@spinner-large-size:    38px;
+@spinner-color:         #a8b7c7;
+@spinner-brand-color:   @theme-color-blue-dark;
+@spinner-inverse-color: #ffffff;
+
+// # DEFAULT SPINNER
+//===========================================
+:host {
+  display: inline-flex;
+  min-width: @spinner-medium-size;
+  height: @spinner-medium-size;
+
+  font-family: @spinner-font;
+  font-size: 16px;
+  color: @spinner-color;
+
+  align-items: center;
+  fill: @spinner-color;
+}
+
+.sa-spinner-icon {
+  position: relative;
+
+  max-width: @spinner-medium-size;
+
+  height: 100%;
+
+  line-height: 0;
+
+  animation: sa-spinner-anim @spinner-speed linear infinite;
+}
+
+.sa-spinner-label {
+  margin-left: 10px;
+
+  line-height: 1.5;
+}
+
+// ## [ MODE ] Spinner with absolute center position
+//===========================================
+:host.sa-spinner--center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+// ## [ MODE ] Spinner with horizontal center position
+//===========================================
+:host.sa-spinner--center-horizontal {
+  width: 100%;
+  margin: (@grid-offset-step * 2) 0;
+
+  justify-content: center;
+}
+
+// ## [ MODE ] small
+//===========================================
+:host.sa-spinner--small {
+  min-width: @spinner-small-size;
+  height: @spinner-small-size;
+
+  font-size: 10px;
+
+  .sa-spinner-icon {
+    max-width: @spinner-small-size;
+  }
+}
+
+// ## [ MODE ] large
+//===========================================
+:host.sa-spinner--large {
+  min-width: @spinner-large-size;
+  height: @spinner-large-size;
+
+  font-size: 18px;
+
+  .sa-spinner-icon {
+    max-width: @spinner-large-size;
+  }
+}
+
+// ## [ MODE ] brand color
+//===========================================
+:host.sa-spinner--brand {
+  color: @spinner-brand-color;
+
+  fill: @spinner-brand-color;
+}
+
+// ## [ MODE ] inverse color
+//===========================================
+:host.sa-spinner--inverse {
+  color: @spinner-inverse-color;
+
+  fill: @spinner-inverse-color;
+}
+
+
+// # SPINNER ANIMATION
+//===========================================
+@keyframes sa-spinner-anim {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,22 +1,39 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "alwaysStrict": true,
+    "allowJs": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": false,
     "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
+    "downlevelIteration": true,
+    "types": [
+      "node"
     ],
     "lib": [
       "es2018",
-      "dom"
-    ]
+      "dom",
+      "dom.iterable"
+    ],
+    "paths": {
+      "@ui-simple/*": [
+        "./projects/ui-simple/src/lib/*"
+      ],
+      "@ui-common/*": [
+        "./projects/ui-common/src/lib/*"
+      ],
+      "@sa-icons/*": [
+        "./projects/icons/*"
+      ],
+      "@sa-core/*": [
+        "./projects/core/src/lib/*"
+      ]
+    }
   }
 }

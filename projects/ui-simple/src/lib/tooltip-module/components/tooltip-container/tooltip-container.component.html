@@ -1,0 +1,9 @@
+<div
+  class="sa-content"
+  [ngClass]="className"
+  [ngStyle]="styles"
+  [@fadeAnimation]="state"
+  (@fadeAnimation.done)="onAnimationDone($event)">
+  <ng-template cdkPortalOutlet>
+  </ng-template>
+</div>

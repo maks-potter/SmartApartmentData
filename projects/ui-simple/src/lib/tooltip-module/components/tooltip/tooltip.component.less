@@ -1,0 +1,188 @@
+@import (reference) 'variables';
+
+@tooltip-font-family:   @font-type-default;
+@tooltip-distance:      @grid-offset-step;
+@tooltip-bg-color:      @theme-secondary-color;
+@tooltip-blue-bg-color: @theme-color-blue-dark;
+@tooltip-color:         #ffffff;
+@tooltip-arrow-width:   8px;
+@tooltip-arrow-color:   @theme-secondary-color;
+
+:host {
+  display: block;
+
+  height: 100%;
+}
+
+.sa-content {
+  position: relative;
+
+  max-width: 300px;
+
+  font-family: @tooltip-font-family;
+}
+
+.sa-inner {
+  padding: (@grid-offset-step / 2) @grid-offset-step;
+
+  font-size: 11px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 14px;
+  text-align: left;
+  color: @tooltip-color;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+
+  border-radius: 4px;
+  background-color: @tooltip-bg-color;
+}
+
+.sa-arrow {
+  position: absolute;
+
+  width: @tooltip-arrow-width;
+  height: @tooltip-arrow-width;
+
+  background-color: @tooltip-arrow-color;
+
+  transform: rotate(45deg);
+}
+
+// [ mode ] position modes
+//==================================================
+.sa-position--top,
+.sa-position--top-left,
+.sa-position--top-right {
+  padding-bottom: @tooltip-distance;
+
+  .sa-arrow {
+    bottom: @tooltip-distance - (@tooltip-arrow-width / 2);
+  }
+}
+
+.sa-position--right,
+.sa-position--right-top,
+.sa-position--right-bottom {
+  padding-left: @tooltip-distance;
+
+  .sa-arrow {
+    left: @tooltip-distance - (@tooltip-arrow-width / 2);
+  }
+}
+
+.sa-position--bottom,
+.sa-position--bottom-left,
+.sa-position--bottom-right {
+  padding-top: @tooltip-distance;
+
+  .sa-arrow {
+    top: @tooltip-distance - (@tooltip-arrow-width / 2);
+  }
+}
+
+.sa-position--left,
+.sa-position--left-top,
+.sa-position--left-bottom {
+  padding-right: @tooltip-distance;
+
+  .sa-arrow {
+    right: @tooltip-distance - (@tooltip-arrow-width / 2);
+  }
+}
+
+.sa-position--top .sa-arrow {
+  left: 50%;
+
+  margin-left: -(@tooltip-arrow-width / 2);
+}
+
+.sa-position--top-left {
+  margin-left: -@grid-offset-step;
+
+  .sa-arrow {
+    left: @grid-offset-step * 2;
+  }
+}
+
+.sa-position--top-right {
+  margin-right: -@grid-offset-step;
+
+  .sa-arrow {
+    right: @grid-offset-step * 2;
+  }
+}
+
+.sa-position--right .sa-arrow {
+  top: 50%;
+
+  margin-top: -(@tooltip-arrow-width / 2);
+}
+
+.sa-position--right-top .sa-arrow {
+  top: @grid-offset-step;
+}
+
+.sa-position--right-bottom .sa-arrow {
+  bottom: @grid-offset-step;
+}
+
+.sa-position--left .sa-arrow {
+  top: 50%;
+
+  margin-top: -(@tooltip-arrow-width / 2);
+}
+
+.sa-position--left-top .sa-arrow {
+  top: @grid-offset-step;
+}
+
+.sa-position--left-bottom .sa-arrow {
+  bottom: @grid-offset-step;
+}
+
+.sa-position--bottom .sa-arrow {
+  left: 50%;
+
+  margin-left: -(@tooltip-arrow-width / 2);
+}
+
+.sa-position--bottom-left {
+  margin-left: -@grid-offset-step;
+
+  .sa-arrow {
+    left: @grid-offset-step * 2;
+  }
+}
+
+.sa-position--bottom-right {
+  margin-right: -@grid-offset-step;
+
+  .sa-arrow {
+    right: @grid-offset-step * 2;
+  }
+}
+
+// [ Mode ] Blue
+//--------------------------------------------------
+.sa-tooltip-new--blue {
+  .sa-inner,
+  .sa-arrow {
+    background-color: @tooltip-blue-bg-color;
+  }
+}
+
+// [ Mode ] Big
+//--------------------------------------------------
+.sa-tooltip-new--big {
+  .sa-inner {
+    padding: (@grid-offset-step * 2);
+
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .sa-arrow {
+    background-color: @tooltip-blue-bg-color;
+  }
+}
